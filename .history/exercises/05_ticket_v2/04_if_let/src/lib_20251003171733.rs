@@ -10,10 +10,21 @@ impl Shape {
     // TODO: Implement the `radius` method using
     //  either an `if let` or a `let/else`.
     pub fn radius(&self) -> f64 {
-        let Self::Circle { radius } = self else {
-            panic!("Only Circle has a radius");
+        let mut result: f64 = 0.0;
+    
+        if let Self::Circle { radius } = &self {
+            result = *radius
+        }
+
+        if let Self::Square { border } = &self {
+            result = *border
+        }
+
+        let Self::Rectangle { width, height } = &self else {
+            panic!("Square does not have a radius")
         };
-        *radius
+
+        result
     }
 }
 

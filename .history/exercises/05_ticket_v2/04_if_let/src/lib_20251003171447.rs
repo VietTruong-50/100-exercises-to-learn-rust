@@ -1,5 +1,3 @@
-use std::result;
-
 enum Shape {
     Circle { radius: f64 },
     Square { border: f64 },
@@ -10,10 +8,10 @@ impl Shape {
     // TODO: Implement the `radius` method using
     //  either an `if let` or a `let/else`.
     pub fn radius(&self) -> f64 {
-        let Self::Circle { radius } = self else {
-            panic!("Only Circle has a radius");
-        };
-        *radius
+   
+        let Self::Square { border } = &self || Self::Rectangle { width, height } = &self else {
+
+        } 
     }
 }
 
